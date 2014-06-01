@@ -1,0 +1,7 @@
+ 
+#new {
+  margin: 0 0 0 10px;
+}
+#filestable.multiselect { top:63px; }
+table.multiselect thead { position:fixed; top:85px; z-index:1; -moz-box-sizing: border-box; box-sizing: border-box; left: 0; padding-left: 50px; width:100%; }
+
