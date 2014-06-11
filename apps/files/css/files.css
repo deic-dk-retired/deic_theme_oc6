@@ -1,7 +1,74 @@
  
 #new {
-  margin: 0 0 0 10px;
+  margin: 0 10px 0 0;
 }
-#filestable.multiselect { top:63px; }
-table.multiselect thead { position:fixed; top:85px; z-index:1; -moz-box-sizing: border-box; box-sizing: border-box; left: 0; padding-left: 50px; width:100%; }
 
+#upload {
+  margin: 0 10px 0 0;
+  width: auto;
+  overflow: visible;
+}
+
+#upload a{
+	padding: 14px 10px 14px 10px;
+	top: -26px;
+	margin: 0 0 0 0;
+	text-align: center;
+	opacity: 1;
+}
+
+#data-upload-form {
+	height: 36px;
+}
+
+#trash {
+	font-weight: bold;
+}
+
+#filestable.multiselect { 
+	top:63px; 
+}
+
+table.multiselect thead { 
+	position:fixed; 
+	top:85px; 
+	z-index:1; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box; 
+	left: 0; 
+	padding-left: 50px; 
+	width:100%; 
+}
+
+table th#headerName {                                                                                                                                                                                                                      
+    position: relative;                                                                                                                                                                                                                                                                                                                               
+    padding: 0;                                                                                                                                                                                                                       
+}
+
+table th .name {
+	top: 0px;
+}
+
+#select_all {
+	top: 3px;
+}
+
+#modified {
+	top: 3px;
+}
+
+#headerName-container {                                                                                                                                                                                                                    
+    position: relative;                                                                                                                                                                                                                    
+    height: 50px;                                                                                                                                                                                                                          
+}                                                                                                                                                                                                                                          
+table th#headerSize, table td.filesize {                                                                                                                                                                                                   
+    min-width: 3em;                                                                                                                                                                                                                        
+    padding: 0 1em;                                                                                                                                                                                                                        
+    text-align: right;                                                                                                                                                                                                                     
+}                                                                                                                                                                                                                                          
+table th#headerDate, table td.date {                                                                                                                                                                                                       
+    -moz-box-sizing: border-box;                                                                                                                                                                                                           
+    box-sizing: border-box;                                                                                                                                                                                                                
+    position: relative;                                                                                                                                                                                                                    
+    min-width: 11em;                                                                                                                                                                                                                       
+}                
