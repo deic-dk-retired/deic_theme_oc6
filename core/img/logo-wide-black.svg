@@ -14,7 +14,7 @@
    id="svg2469"
    sodipodi:version="0.32"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="logo-wide.svg"
+   sodipodi:docname="logo-wide-black.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0">
   <sodipodi:namedview
@@ -70,7 +70,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
