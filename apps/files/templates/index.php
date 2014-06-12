@@ -3,16 +3,16 @@
 	<?php print_unescaped($_['breadcrumb']); ?>
 	<?php if ($_['isCreatable']):?>
 		<div class="actions <?php if (isset($_['files']) and count($_['files'])==0):?>emptyfolder<?php endif; ?>">
-			<div id="new" class="button">
-				<a><?php p($l->t('New'));?></a>
-				<ul>
-					<li style="background-image:url('<?php p(OCP\mimetype_icon('text/plain')) ?>')"
-						data-type='file'><p><?php p($l->t('Text file'));?></p></li>
-					<li style="background-image:url('<?php p(OCP\mimetype_icon('dir')) ?>')"
-						data-type='folder'><p><?php p($l->t('Folder'));?></p></li>
-					<li style="background-image:url('<?php p(OCP\image_path('core', 'actions/public.png')) ?>')"
-						data-type='web'><p><?php p($l->t('From link'));?></p></li>
-				</ul>
+			<?php if ($_['trash'] ): ?>
+			<div id="trash" class="button">
+				<a><?php p($l->t('Trash'));?></a>
+			</div>
+			<?php endif; ?>
+			<div id="uploadprogresswrapper">
+				<div id="uploadprogressbar"></div>
+				<input type="button" class="stop" style="display:none"
+					value="<?php p($l->t('Cancel upload'));?>"
+				/>
 			</div>
 			<div id="upload" class="button"
 				 title="<?php p($l->t('Upload') . ' max. '.$_['uploadMaxHumanFilesize']) ?>">
@@ -36,17 +36,18 @@
 					<a><?php p($l->t('Upload'));?></a>
 				</form>
 			</div>
-			<?php if ($_['trash'] ): ?>
-			<div id="trash" class="button">
-				<a><?php p($l->t('Deleted files'));?></a>
+			<div id="new" class="button">
+				<a><?php p($l->t('New'));?></a>
+				<ul>
+					<li style="background-image:url('<?php p(OCP\mimetype_icon('text/plain')) ?>')"
+						data-type='file'><p><?php p($l->t('Text file'));?></p></li>
+					<li style="background-image:url('<?php p(OCP\mimetype_icon('dir')) ?>')"
+						data-type='folder'><p><?php p($l->t('Folder'));?></p></li>
+					<li style="background-image:url('<?php p(OCP\image_path('core', 'actions/public.png')) ?>')"
+						data-type='web'><p><?php p($l->t('From link'));?></p></li>
+				</ul>
 			</div>
-			<?php endif; ?>
-			<div id="uploadprogresswrapper">
-				<div id="uploadprogressbar"></div>
-				<input type="button" class="stop" style="display:none"
-					value="<?php p($l->t('Cancel upload'));?>"
-				/>
-			</div>
+			
 		</div>
 		<div id="file_action_panel"></div>
 	<?php elseif( !$_['isPublic'] ):?>

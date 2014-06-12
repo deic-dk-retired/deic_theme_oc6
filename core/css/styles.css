@@ -206,6 +206,14 @@ body {
 	color: #000;
 }
 
+#expandDisplayName a {
+	color: #000;
+}
+
+#logout a {
+	color: #000;
+}
+
 .searchbox input[type="search"] { 
 	font-size:1.0em; 
 	padding:.4em .5em .2em 1.5em; 
@@ -221,8 +229,6 @@ body {
 	-moz-transition:opacity 300ms; 
 	-o-transition:opacity 300ms; 
 	transition:opacity 300ms; 
-	margin-top:55px;
-	margin-right: -70px; 
 	float:right; }
 
 #controls{
@@ -230,7 +236,7 @@ body {
     left:250px;
     top:3.5em;
     height:4.7em;
-    width:63%;
+    width:73%;
     min-width:920px;
     padding:0 0 0 0;
     margin:0 0 0 0;
