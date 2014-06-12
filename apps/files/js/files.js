@@ -1,3 +1,4 @@
+
 var uploadingFiles = {};
 Files={
 	cancelUpload:function(filename) {
@@ -792,6 +793,8 @@ function procesSelection(){
  * if property is set, an array with that property for each file is returnd
  * if it's ommited an array of objects with all properties is returned
  */
+
+
 function getSelectedFiles(property){
 	var elements=$('td.filename input:checkbox:checked').parent().parent();
 	var files=[];

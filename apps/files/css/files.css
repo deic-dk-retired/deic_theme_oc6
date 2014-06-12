@@ -30,7 +30,7 @@
 }
 
 table.multiselect thead { 
-	position:fixed; 
+	position: relative; 
 	top:85px; 
 	z-index:1; 
 	-moz-box-sizing: border-box; 
@@ -46,15 +46,26 @@ table th#headerName {
 }
 
 table th .name {
+	position: relative;
 	top: 0px;
 }
 
 #select_all {
-	top: 3px;
+	position: relative;
+	top: 0px;
 }
 
 #modified {
-	top: 3px;
+	position: relative;
+	top: 0px;
+}
+
+.selectedActions {
+	top: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	position: relative;
+	float: right;
 }
 
 #headerName-container {                                                                                                                                                                                                                    
