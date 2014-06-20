@@ -39,7 +39,7 @@
 	</div>
 	<header><div id="header">
 			<a href="<?php print_unescaped(link_to('', 'index.php')); ?>" title="" id="owncloud"><img class="svg"
-				src="<?php print_unescaped(image_path('', 'logo-wide.svg')); ?>" alt="ownCloud" /></a>
+				src="<?php print_unescaped(image_path('', 'logo-green-gray.svg')); ?>" alt="ownCloud" /></a>
 			<div id="logo-claim" style="display:none;"><?php p($defaults->getLogoClaim()); ?></div>
 			<ul id="settings" class="svg">
 
@@ -87,46 +87,10 @@
 		</div></header>
 
         <nav><div id="navigation">                                                                                                                                                    
-            <ul id="apps" class="svg">    
-            <div class="wrapper"><!-- for sticky footer of apps management -->                                                                                                    
-                    <li class="ui-droppable" data-id="files_index">                                                                                                                          
-                        <a href="/index.php/apps/files" title="" class="active">                                                                                           
-                            <img class="icon svg" src="/core/img/places/files_DeicTheme.svg">                                                                                   
-                            <span>                                                                                                                                                    
-                                Files                                                                                                                           
-                            </span>                                                                                                                                                   
-                        </a>                                                                                                                                                          
-                    </li>                                                                                                                                                             
-                     <li data-id="documents_index">                                                                                                                          
-                        <a href="/index.php/apps/documents" title="">                                                                                           
-                            <img class="icon svg" src="/apps/documents/img/documents.svg">                                                                                   
-                            <span>                                                                                                                                                    
-                                Documents                                                                                                                           
-                            </span>                                                                                                                                                   
-                        </a>                                                                                                                                                          
-                    </li>                                                                                                                                                             
-                    <li data-id="gallery_index">                                                                                                                          
-                        <a href="/index.php/apps/gallery" title="">                                                                                           
-                            <img class="icon svg" src="/core/img/places/picture_DeicTheme.svg">                                                                                   
-                            <span>                                                                                                                                                    
-                                Pictures                                                                                                                           
-                            </span>                                                                                                                                                   
-                        </a>                                                                                                                                                          
-                    </li>                                                                                                                                                             
-				    <li data-id="groups">                                                                                                                          
-                        <a href="/index.php/apps/user_groups" title="">                                                                                           
-                            <img class="icon svg" src="">                                                                                   
-                            <span>                                                                                                                                                    
-                                Groups                                                                                                                           
-                            </span>                                                                                                                                                   
-                        </a>                                                                                                                                                          
-                    </li>                                                                                                                                                             
-                    <div class="push"></div><!-- for for sticky footer of apps management -->                                                                                                                                                                                                                                          
-                </div>                                                                                                                                           
+            <ul id="apps" class="svg">                                                                                                                                                
                 <div class="wrapper"><!-- for sticky footer of apps management -->                                                                                                    
                 <?php foreach($_['navigation'] as $entry): ?>                                                                                                                         
-                    <li data-id="<?php p($entry['id']); ?>">     
-                                                                                                                                         
+                    <li data-id="<?php p($entry['id']); ?>">                                                                                                                          
                         <a href="<?php print_unescaped($entry['href']); ?>" title=""                                                                                                  
                             <?php if( $entry['active'] ): ?> class="active"<?php endif; ?>>                                                                                           
                             <img class="icon svg" src="<?php print_unescaped($entry['icon']); ?>"/>                                                                                   

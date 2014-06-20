@@ -10,8 +10,9 @@
 
 	<head data-requesttoken="<?php p($_['requesttoken']); ?>">
 		<title>
-		DeIC data
+		DeIC data 
 		</title>
+<!--above change the title of the page in the browser tabs --> 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="apple-itunes-app" content="app-id=543672169">
 		<link rel="shortcut icon" href="<?php print_unescaped(image_path('', 'favicon.png')); ?>" />
@@ -37,12 +38,19 @@
 	<body id="body-login">
 		<div id="login">
 			<header><div id="header">
-				<a href="/"><img src="<?php print_unescaped(image_path('', 'logo.png')); ?>" class="svg" alt="ownCloud" /> &nbsp; <font size=18><b>data</b></font></a>
+				<a href="/"><img src="<?php print_unescaped(image_path('', 'logo-Deic-data.png')); ?>" class="svg" alt="ownCloud" /></a> <!--&nbsp; <font size=18><b>data</b></font></a> -->
 				<div id="logo-claim" style="display:none;"><?php p($defaults->getLogoClaim()); ?></div>
 			</div></header>
 			<?php print_unescaped($_['content']); ?>
 		</div>
 		<footer>
+                        <center>
+			<p class="string" style="color: grey; text-align: left; width: 600px;">
+			This is a test service. We do not guarantee the safety of your data and do not accept any liability for the consequences of the use of the service. Uploading illegal or copyrighted data for which you cannot claim ownership is strictly forbidden.
+<br />
+For a full description of the end user agreement, please click <a href="http://data.deic.dk/useragreement/"><b>here</b></a>  <!--need to create this link! --> 
+			</p>
+
 			<p class="info">
                                 DeIC data is powered by <a href="http://owncloud.org/">ownCloud</a>
 			</p></footer>
