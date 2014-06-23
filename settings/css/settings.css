@@ -12,3 +12,7 @@ label {
 	color: #222222;
 	cursor: default;
 }
+
+div.clientsbox, input#pass1 {
+	display:none;
+}
