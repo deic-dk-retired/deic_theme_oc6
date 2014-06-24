@@ -48,9 +48,10 @@
 			<p class="string" style="color: grey; text-align: left; width: 600px;">
 			This is a test service. We do not guarantee the safety of your data and do not accept any liability for the consequences of the use of the service. Uploading illegal or copyrighted data for which you cannot claim ownership is strictly forbidden.
 <br />
-For a full description of the end user agreement, please click <a href="http://data.deic.dk/useragreement/"><b>here</b></a>  <!--need to create this link! --> 
+For a full description of the end-user agreement, please click <a href="http://data.deic.dk/useragreement/"><b>here</b></a>  <!--need to create this link! --> 
 			</p>
-
+<br />
+<br />
 			<p class="info">
                                 DeIC data is powered by <a href="http://owncloud.org/">ownCloud</a>
 			</p></footer>
