@@ -14,7 +14,7 @@
 	/*background: linear-gradient(top, #ffffff 0%,#ffffff 100%); /* W3C */
 	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */ 
 /*}*/
-
+table { border-collapse:separate; border-spacing:2px; white-space:nowrap; }
 #body-login { /*background of the login page #ffffff for a white background*/
 	text-align: center;
 	background: #1d2d44; /* Old browsers */
@@ -285,11 +285,11 @@ div.jp-current-time, div.jp-duration {
 
 
 input[type="submit"], input[type="button"], button, .button, #quota, div.jp-progress, select, .pager li a {
-    background-color: rgba(240, 240, 240, 0.9);
+    background-color: rgba(240, 240, 240, 0.9); /*very light grey*/
     border: 1px solid rgba(190, 190, 190, 0.9);
     border-radius: 0.5em;
     box-shadow: 0 0 0 #fff;
-    color: #555555;
+    color: #555555; /*grey - color of the button font*/ 
     cursor: pointer;
     font-weight: bold;
     padding: 0.4em 0.4em 0.5em 0.4em;
@@ -455,7 +455,7 @@ div.crumb.last:after {
 
 /* Julie added - copied and modified from style.css in owncloud folder */
 /* ---- DIALOGS ---- */ 
-#oc-dialog-filepicker-content .dirtree {width:92%; overflow:hidden; }
+#oc-dialog-filepicker-content .dirtree {width:72%; overflow:hidden; }
 #oc-dialog-filepicker-content .dirtree .home {
 	background-image:url('../img/places/home.svg');
 	background-repeat:no-repeat;
@@ -463,7 +463,7 @@ div.crumb.last:after {
 }
 
 /* Dark subtle label text */
-#body-login p.info a, #body-login #showAdvanced {
+#body-login p.info a, #body-login p.info a:focus, #body-login p.info a:hover, #body-login #showAdvanced {
 	color: #000; /*the color of owncloud in the guest page (login page)*/
 }
 
@@ -472,10 +472,12 @@ div.crumb.last:after {
 #body-login #datadirContent label,
 #body-login form fieldset .warning-info,
 #body-login form input[type="checkbox"]+label {
+	padding: 1px 1px 1px 1px;
+	position: relative;
 	text-align: center;
 	color: #000;  /*darken the footnote, more suited with a white background*/
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
 	filter: alpha(opacity=60);
 	opacity: .6;
-}
+} 
 
