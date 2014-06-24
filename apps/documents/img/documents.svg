@@ -12,7 +12,7 @@
    version="1.0"
    id="svg2"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="documents.svg">
+   sodipodi:docname="file.svg">
   <metadata
      id="metadata21">
     <rdf:RDF>
@@ -57,12 +57,12 @@
       <stop
          offset="0"
          id="stop7"
-         style="stop-color:#b8c747;stop-opacity:1" />
+         style="stop-color:#cbd576;stop-opacity:1" />
       <stop
          stop-color="#363636"
          offset="1"
          id="stop9"
-         style="stop-color:#73ba4d;stop-opacity:1" />
+         style="stop-color:#a2ad4c;stop-opacity:1" />
     </linearGradient>
   </defs>
   <rect
