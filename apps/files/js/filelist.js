@@ -4,6 +4,16 @@ var FileList={
 		$('#fileList tr').each(function() {
 			//little hack to set unescape filenames in attribute
 			$(this).attr('data-file',decodeURIComponent($(this).attr('data-file')));
+			
+			// Hack to get theme icons.
+			$(this).find('td.svg').each(function(el){
+				icon = $(this).css('background-image');
+				if(icon){
+					icon = icon.replace("https://data.deic.dk/core/img/filetypes/", "/themes/deic/core/img/filetypes/");
+					$(this).css('background-image', icon);
+				}
+			});
+				
 		});
 	},
 	/**
@@ -116,7 +126,7 @@ var FileList={
 		if (loading) {
 			imgurl = OC.imagePath('core', 'loading.gif');
 		} else {
-			imgurl = OC.imagePath('themes/deic/core', 'filetypes/file.png');
+			imgurl = OC.imagePath('core', 'filetypes/file.png');
 		}
 		var tr = this.createRow(
 			'file',
@@ -144,7 +154,7 @@ var FileList={
 		var tr = this.createRow(
 			'dir',
 			name,
-			OC.imagePath('themes/deic/core', 'filetypes/folder.png'), //'/themes/deic/core/img/filetypes/folder.png', //
+			OC.imagePath('core', 'filetypes/folder.png'),
 			OC.linkTo('files', 'index.php')+"?dir="+ encodeURIComponent($('#dir').val()+'/'+name).replace(/%2F/g, '/'),
 			size,
 			lastModified,
@@ -402,7 +412,7 @@ var FileList={
 					// save background image, because it's replaced by a spinner while async request
 					var oldBackgroundImage = td.css('background-image');
 					// mark as loading
-					td.css('background-image', 'url('+ OC.imagePath('/themes/deic/core', 'loading.gif') + ')');
+					td.css('background-image', 'url('+ OC.imagePath('core', 'loading.gif') + ')');
 					$.ajax({
 						url: OC.filePath('files','ajax','rename.php'),
 						data: {
@@ -731,7 +741,7 @@ var FileList={
 
 		$mask = $('<div class="mask transparent"></div>');
 
-		$mask.css('background-image', 'url('+ OC.imagePath('/themes/deic/core', 'loading.gif') + ')');
+		$mask.css('background-image', 'url('+ OC.imagePath('core', 'loading.gif') + ')');
 		$mask.css('background-repeat', 'no-repeat');
 		$('#content').append($mask);
 
@@ -877,7 +887,7 @@ $(document).ready(function() {
 				uploadtext.attr('currentUploads', currentUploads);
 				var translatedText = n('files', 'Uploading %n file', 'Uploading %n files', currentUploads);
 				if (currentUploads === 0) {
-					var img = OC.imagePath('themes/deic/core', 'filetypes/folder.png'); 
+					var img = OC.imagePath('core', 'filetypes/folder.png');
 					data.context.find('td.filename').attr('style','background-image:url('+img+')');
 					uploadtext.text(translatedText);
 					uploadtext.hide();
@@ -937,7 +947,7 @@ $(document).ready(function() {
 		if (data.errorThrown === 'abort') {
 			//cleanup uploading to a dir
 			var uploadtext = $('tr .uploadtext');
-			var img = OC.imagePath('/themes/deic/core', 'filetypes/folder.png');
+			var img = OC.imagePath('core', 'filetypes/folder.png');
 			uploadtext.parents('td.filename').attr('style','background-image:url('+img+')');
 			uploadtext.fadeOut();
 			uploadtext.attr('currentUploads', 0);
@@ -950,7 +960,7 @@ $(document).ready(function() {
 		if (data.errorThrown === 'abort') {
 			//cleanup uploading to a dir
 			var uploadtext = $('tr .uploadtext');
-			var img = OC.imagePath('/themes/deic/core', 'filetypes/folder.png'); //'/themes/deic/core/img/filetypes/folder.png'; //
+			var img = OC.imagePath('core', 'filetypes/folder.png');
 			uploadtext.parents('td.filename').attr('style','background-image:url('+img+')');
 			uploadtext.fadeOut();
 			uploadtext.attr('currentUploads', 0);
