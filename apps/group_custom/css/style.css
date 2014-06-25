@@ -1,0 +1,12 @@
+div#content div#controls{
+	min-width: 600px;
+}
+#leftcontent, .leftcontent{
+	bottom: 15px;
+}
+.ui-widget-header {
+	border: 1px solid #4B610B;
+	background: #4B610B url(images/ui-bg_flat_35_1d2d44_40x100.png) 50% 50% repeat-x;
+	color: #ffffff;
+	font-weight: bold;
+}
