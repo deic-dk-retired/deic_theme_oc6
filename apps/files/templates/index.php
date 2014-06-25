@@ -32,7 +32,7 @@
 					<a href="#">Upload</a>
 			</div>
 			<?php if ($_['trash']): ?>
-			<input id="trash" type="button" value="<?php p($l->t('Trash'));?>" class="button" <?php $_['trashEmpty'] ? p('disabled') : '' ?> />
+			<div id="trash" class="button" <?php $_['trashEmpty'] ? p('disabled') : '' ?>><?php p($l->t('Trash'));?></div>
 			<?php endif; ?>
 			<div id="uploadprogresswrapper">
 				<div id="uploadprogressbar"></div>

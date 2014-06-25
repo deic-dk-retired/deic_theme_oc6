@@ -62,7 +62,7 @@ if($_['passwordChangeSupported']) {
 ?>
 <form id="lostpassword">
 	<fieldset class="personalblock">
-		<h2><?php p($l->t('Email'));?></h2>
+		<h2><?php p($l->t('Email (username)'));?></h2>
 		<input type="text" name="email" id="email" value="<?php p($_['email']); ?>"
 			placeholder="<?php p($l->t('Your email address'));?>" /><span class="msg"></span><br />
 		<em><?php p($l->t('Fill in an email address to enable password recovery'));?></em>

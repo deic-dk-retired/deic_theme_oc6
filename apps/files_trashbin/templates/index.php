@@ -4,7 +4,7 @@
 </div>
 <div id='notification'></div>
 
-<div id="emptycontent" <?php if (!(isset($_['files']) && count($_['files']) === 0 && $_['dirlisting'] === false && !$_['ajaxLoad'])):?>class="hidden"<?php endif; ?>><?php p($l->t('Nothing in here. Your trash bin is empty!'))?></div>
+<div id="emptycontent" <?php if (!(isset($_['files']) && count($_['files']) === 0 && $_['dirlisting'] === false && !$_['ajaxLoad'])):?>class="hidden"<?php endif; ?>><?php p($l->t('Nothing here.'))?></div>
 
 <input type="hidden" name="ajaxLoad" id="ajaxLoad" value="<?php p($_['ajaxLoad']); ?>" />
 <input type="hidden" id="disableSharing" data-status="<?php p($_['disableSharing']); ?>"></input>
@@ -31,7 +31,7 @@
 				<span id="modified"><?php p($l->t( 'Deleted' )); ?></span>
 				<span class="selectedActions">
 					<a href="" class="delete">
-						<?php p($l->t('Delete'))?>
+						<?php p($l->t('Delete permanently'))?>
 						<img class="svg" alt="<?php p($l->t('Delete'))?>"
 							src="<?php print_unescaped(OCP\image_path("core", "actions/delete.svg")); ?>" />
 					</a>
