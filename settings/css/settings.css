@@ -13,6 +13,6 @@ label {
 	cursor: default;
 }
 
-div.clientsbox, input#pass1 {
+/*div.clientsbox, */ .credits-footer, input#pass1 {
 	display:none;
 }

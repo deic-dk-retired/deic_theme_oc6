@@ -5,16 +5,6 @@
  */?>
 
 <div class="clientsbox center">
-	<h2><?php p($l->t('Get the apps to sync your files'));?></h2>
-	<a href="<?php p($_['clients']['desktop']); ?>" target="_blank">
-		<img src="<?php print_unescaped(OCP\Util::imagePath('core', 'desktopapp.png')); ?>" />
-	</a>
-	<a href="<?php p($_['clients']['android']); ?>" target="_blank">
-		<img src="<?php print_unescaped(OCP\Util::imagePath('core', 'googleplay.png')); ?>" />
-	</a>
-	<a href="<?php p($_['clients']['ios']); ?>" target="_blank">
-		<img src="<?php print_unescaped(OCP\Util::imagePath('core', 'appstore.png')); ?>" />
-	</a>
 	<?php if(OC_APP::isEnabled('firstrunwizard')) {?>
 	<p class="center"><a class="button" href="#" id="showWizard"><?php p($l->t('Show First Run Wizard again'));?></a></p>
 	<?php }?>
