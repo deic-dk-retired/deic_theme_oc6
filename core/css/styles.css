@@ -474,10 +474,10 @@ div.crumb.last:after {
 #body-login form input[type="checkbox"]+label {
 	padding: 1px 1px 1px 1px;
 	position: relative;
+	margin: 0;
 	text-align: center;
 	color: #000;  /*darken the footnote, more suited with a white background*/
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
 	filter: alpha(opacity=60);
 	opacity: .6;
 } 
-
