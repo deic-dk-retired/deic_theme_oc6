@@ -1,37 +1,50 @@
 <html>
 <head>
 <link media="screen" type="text/css" href="/remote.php/core.css" rel="stylesheet" />
+<link media="screen" type="text/css" href="/settings/css/settings.css" rel="stylesheet" />
 </head>
 <body>
 <div id="content-wrapper">
 <div id="content">
 <div id="cboxContent">
-<h1>Welcome to <a href="http://data.deic.dk/">data.deic.dk</a></h1>
-<h3>Powered by <a href="http://owncloud.org/">ownCloud</a></h3>
+<h3>Welcome to <a href="http://data.deic.dk/">data.deic.dk</a></h3>
+<p>Powered by <a href="http://owncloud.org/">ownCloud</a></p>
+<br />
+<h3>File management</h3>
+<br />
+<p name="webdav">
+We recommend managing large files or large number of files with a dedicated file transfer client that supports WebDAV - like <a href="http://cyberduck.io/">Cyberduck</a>, the KDE file manager</a> (Dolphin), <a href="http://www.crossftp.com/">CrossFTP</a> or the command-line tool cadaver - or plain curl and wget (also command-line tools). Connecting with these clients is explained in the <a href="http://doc.owncloud.org/server/6.0/user_manual/files/files.html">ownCloud documentation</a> - <em>where you have to replace <code>example.com/owncloud</code> with <code>data.deic.dk</code> in the examples given</em>. E.g. for dolphin, the URL you should connect to is <code>webdavs://data.deic.dk/remote.php/webdav/</code>
+<br />
+<br />
+Notice that <em>we do not recommend mounting</em>  - so avoid fusedav and Ubuntu's Gnome/Nautilus file manager. Instead, <a href="http://owncloud.org/install/#desktop">use syncing</a>.
+</p>
+<br />
+<h3>DeIC-specific features</h3>
 <br />
 <p>
-Non-standard features of this ownCloud installation include:
+DeIC's mission is to make computing easier for researchers. For our file-management platform, we've chosen ownCloud - which we're extending with research-oriented apps. <b>We have a few apps in beta test</b>:
 </p>
 <br />
 <p>
-<ul>
-<li><b>Login with <a href="http://wayf.dk/"> WAYF</a></b> to this web interface with your home-institutions credentials.</li>
-<li><b>Set a password</b> in your preferences, allowing login with <a href="http://doc.owncloud.org/server/5.0/user_manual/connecting_webdav.html">WebDAV</a>. Notice that <em>we do not recommend mounting</em>  - so avoid fusedav and Ubuntu's Gnome/Nautilus file manager. Instead we recommend using <a href="http://doc.owncloud.org/server/5.0/user_manual/connecting_webdav.html">WebDAV</a> clients like <a href="http://cyberduck.io/">Cyberduck</a>, the KDE file manager</a> (Dolphin), <a href="http://www.crossftp.com/">CrossFTP</a> or the command-line tool cadaver - or plain curl and wget (also command-line tools).</li>
-<li><b>Access your data via HTTPS directly from your virtual machines on <a href="http://compute.deic.dk/">compute.deic.dk</a></b>  - over a non-public, trusted network, with automatic authentication (i.e. no password). You can do this by pointing your HTTP or WebDAV client to https://10.2.0.254/remote.php/mydav/.</li>
-<li><b>Download data directly</b> to data.deic.dk from external sources - with the 'DL' app on the left toolbar (use this only for few and small files) or via an API - like e.g.<br /><code>curl -k -L --request GET "https://10.2.0.254/remote.php/ingest/?provider=S3&password=my_master_password&url=s3://aws-publicdatasets/common-crawl/crawl-002/2010/01/06/0/1262850367358_0.arc.gz"</code></li>
-</ul>
+<b>Access your data via HTTPS directly from your virtual machines on <a href="http://compute.deic.dk/">compute.deic.dk</a></b>  - over a non-public, trusted network, with automatic authentication (i.e. no password). You can do this by pointing your HTTP or WebDAV client to https://10.2.0.254/remote.php/mydav/.
+<br />
+<br />
+<b>Download data directly</b> to data.deic.dk from external sources - with the 'DL' app on the left toolbar (use this only for few and small files) or via an API - like e.g.
+<br />
+<br />
+<code>curl -k -L --request GET "https://10.2.0.254/remote.php/ingest/?provider=S3&password=my_master_password&url=s3://aws-publicdatasets/common-crawl/crawl-002/2010/01/06/0/1262850367358_0.arc.gz"</code>
 </p>
 <br />
 <p>
-We moreover plan on implementing:
+<b>More research apps are on the way</b>:
 </p>
 <br />
 <p>
-<ul>
-<li><b>Groups</b> - allow anyone to browse groups, apply for membership, create groups and invite members.</li>
-<li><b>Metadata</b> - allow or enforce description of uploaded data.</li>
-<li><b>Management of you VM images on compute.deic.dk</b> - take advantage of ownCloud's datamanagement features to organize and share your image library.</li>
-</ul>
+<b>Metadata</b> - allow or enforce description of uploaded data.
+<br />
+<b>Management of you VM images on compute.deic.dk</b> - take advantage of ownCloud's datamanagement features to organize and share your image library.
+<br />
+<b>Groups</b> - extended group functionality: browse groups, invitation/sign-up instead of direct adding of members.
 </p>
 </div>
 </div>
