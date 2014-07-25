@@ -1077,4 +1077,16 @@ $(document).ready(function() {
 	}
 
 	FileList.createFileSummary();
+	
+	// Fix folder icon in New dropdown
+	$('li[data-type="folder"]').each(function() {
+		icon = $(this).css('background-image');
+		alert(icon);
+		if(icon){
+			icon = icon.replace("https://data.deic.dk/core/img/filetypes/", "/themes/deic/core/img/filetypes/");
+			$(this).css('background-image', icon);
+		}
+	});
+			
+	
 });

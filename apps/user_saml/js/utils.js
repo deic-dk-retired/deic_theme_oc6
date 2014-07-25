@@ -1,3 +1,4 @@
+
 function getCookie(name) {
     var dc = document.cookie;
     var prefix = name + "=";
@@ -149,8 +150,8 @@ $(document).ready(function(){
 				}
 				else{
 					$('fieldset').show("slow", "linear");
-				}
-			});
+                }
+            });
 
     var cookieName = "saml_auth_fail";
     var myCookie = getCookie(cookieName);
