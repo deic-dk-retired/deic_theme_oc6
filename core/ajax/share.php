@@ -19,6 +19,8 @@
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+require_once('../../../../lib/base.php');
+
 OC_JSON::checkLoggedIn();
 OCP\JSON::callCheck();
 OC_App::loadApps();
@@ -34,6 +36,13 @@ if (isset($_POST['action']) && isset($_POST['itemType']) && isset($_POST['itemSo
 					$shareWith = $_POST['shareWith'];
 					if ($shareType === OCP\Share::SHARE_TYPE_LINK && $shareWith == '') {
 						$shareWith = null;
+					}
+					
+					// Frederik: Allow any string to be used as token.
+					if(isset($_POST['token'])){
+						\OCP\Util::writeLog('sharing', "token: " . $_POST['token'], \OCP\Util::WARN);
+						$query = \OC_DB::prepare('UPDATE `*PREFIX*share` SET `token` = ? WHERE `item_source` = ?');
+						$query->execute(array($_POST['token'], $_POST['itemSource']));
 					}
 
 					$token = OCP\Share::shareItem(
@@ -328,7 +337,9 @@ if (isset($_POST['action']) && isset($_POST['itemType']) && isset($_POST['itemSo
 						$users = OC_Group::DisplayNamesInGroups($usergroups, $_GET['search'], $limit, $offset);
 					} else {
 						$users = OC_User::getDisplayNames($_GET['search'], $limit, $offset);
-					}
+                        // share alias mock-up; added by Christian
+                        $users += OC_User_Alias::getAliases($_GET['search']); 
+                    }
 					$offset += $limit;
 					foreach ($users as $uid => $displayName) {
 						if ((!isset($_GET['itemShares'])
