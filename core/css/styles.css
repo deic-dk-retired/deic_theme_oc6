@@ -153,7 +153,7 @@ input.login[type="submit"], #body-login input.login {
 /* Apps management as sticky footer, less obtrusive in the list */              
 #navigation .wrapper {                                                          
     min-height: 100%;                                                           
-    margin: 0 auto -150px;                                                       
+    margin: 0 auto -160px;                                                       
 }                                                                               
 #apps-management, #navigation .push {                                           
     height: 72px;                                                               
