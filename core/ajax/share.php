@@ -43,9 +43,10 @@ if (isset($_POST['action']) && isset($_POST['itemType']) && isset($_POST['itemSo
 						\OCP\Util::writeLog('sharing', "token: " . $_POST['token'], \OCP\Util::WARN);
 						$query = \OC_DB::prepare('UPDATE `*PREFIX*share` SET `token` = ? WHERE `item_source` = ?');
 						$query->execute(array($_POST['token'], $_POST['itemSource']));
+						$token = $_POST['token'];
 					}
 
-					$token = OCP\Share::shareItem(
+					$generated_token = OCP\Share::shareItem(
 						$_POST['itemType'],
 						$_POST['itemSource'],
 						$shareType,
@@ -53,6 +54,10 @@ if (isset($_POST['action']) && isset($_POST['itemType']) && isset($_POST['itemSo
 						$_POST['permissions'],
 						$_POST['itemSourceName']
 					);
+					
+					if(!isset($_POST['token'])){
+						$token = $generated_token;
+					}
 
 					if (is_string($token)) {
 						OC_JSON::success(array('data' => array('token' => $token)));

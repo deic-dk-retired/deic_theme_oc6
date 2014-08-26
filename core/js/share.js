@@ -3,6 +3,7 @@ OC.Share={
 	SHARE_TYPE_GROUP:1,
 	SHARE_TYPE_LINK:3,
 	SHARE_TYPE_EMAIL:4,
+	LINK_BASE:'https://data.deic.dk/shared/',
 	itemShares:[],
 	statuses:{},
 	droppedDown:false,
@@ -222,7 +223,7 @@ OC.Share={
 				html += '<input type="checkbox" name="linkCheckbox" id="linkCheckbox" value="1" /><label for="linkCheckbox">'+t('core', 'Share link')+'</label>';
 				html += '<br />';
 				//html += '<input id="linkText" type="text" readonly="readonly" />';
-				html += '<input id="linkText" type="text" />';
+				html += '<span id="linkText" type="text"><span id="linkBase"></span><input id="token" type="url"></input></span>';
 				html += '<input type="checkbox" name="showPassword" id="showPassword" value="1" style="display:none;" /><label for="showPassword" style="display:none;">'+t('core', 'Password protect')+'</label>';
 				html += '<div id="linkPass">';
 				html += '<input id="linkPassText" type="password" placeholder="'+t('core', 'Password')+'" />';
@@ -456,11 +457,16 @@ OC.Share={
 			}
 			file = '/'+OC.currentUser+'/files'+file;
 			var link = parent.location.protocol+'//'+location.host+OC.linkTo('', 'public.php')+'?service=files&'+type+'='+encodeURIComponent(file);
+			$('#linkText #linkBase').html(link);
+			$('#linkText #token').val('');
+			$('#linkText #token').hide();
 		} else {
 			//TODO add path param when showing a link to file in a subfolder of a public link share
-			var link = parent.location.protocol+'//'+location.host+OC.linkTo('', 'public.php')+'?service=files&t='+token;
+			//var link = parent.location.protocol+'//'+location.host+OC.linkTo('', 'public.php')+'?service=files&t='+token;
+			$('#linkText #token').show();
+			$('#linkText #linkBase').html(OC.Share.LINK_BASE);
+			$('#linkText #token').val(token);
 		}
-		$('#linkText').val(link);
 		$('#linkText').show('blind');
 		$('#linkText').css('display','block');
 		$('#showPassword').show();
@@ -544,8 +550,7 @@ OC.Share={
 		var itemType = $('#dropdown').data('item-type');
 		var itemSource = $('#dropdown').data('item-source');
 		var itemSourceName = $('#dropdown').data('item-source-name');
-		var linkText = $('#dropdown #linkText').val()
-		var token = OC.Share.getParameterByName(linkText, 't');
+		var token = $('#dropdown #linkText #token').val();
 		var permissions = 0;
 		// Calculate permissions
 		if (allowPublicUpload) {
@@ -688,7 +693,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$(document).on('click', '#dropdown #linkText', function() {
+	$(document).on('click', '#dropdown #linkText #token', function() {
 		$(this).focus();
 		$(this).select();
 	});
@@ -762,7 +767,7 @@ $(document).ready(function() {
 
 	$(document).on('submit', '#dropdown #emailPrivateLink', function(event) {
 		event.preventDefault();
-		var link = $('#linkText').val();
+		var link = OC.Share.LINK_BASE+$('#linkText #token').val();
 		var itemType = $('#dropdown').data('item-type');
 		var itemSource = $('#dropdown').data('item-source');
 		var file = $('tr').filterAttr('data-id', String(itemSource)).data('file');
