@@ -223,7 +223,7 @@ OC.Share={
 				html += '<input type="checkbox" name="linkCheckbox" id="linkCheckbox" value="1" /><label for="linkCheckbox">'+t('core', 'Share link')+'</label>';
 				html += '<br />';
 				//html += '<input id="linkText" type="text" readonly="readonly" />';
-				html += '<span id="linkText" type="text"><span id="linkBase"></span><input id="token" type="url"></input></span>';
+				html += '<span id="linkText" type="text"><span id="linkBase"></span><input id="token" type="url"></input><a class="openURL" href="#" target="_blank" class="getURL" title="Open URL"><img src="/core/img/actions/public.svg" /></a></span>';
 				html += '<input type="checkbox" name="showPassword" id="showPassword" value="1" style="display:none;" /><label for="showPassword" style="display:none;">'+t('core', 'Password protect')+'</label>';
 				html += '<div id="linkPass">';
 				html += '<input id="linkPassText" type="password" placeholder="'+t('core', 'Password')+'" />';
@@ -458,6 +458,7 @@ OC.Share={
 			file = '/'+OC.currentUser+'/files'+file;
 			var link = parent.location.protocol+'//'+location.host+OC.linkTo('', 'public.php')+'?service=files&'+type+'='+encodeURIComponent(file);
 			$('#linkText #linkBase').html(link);
+			$('#linkText .openURL').attr('href', link);
 			$('#linkText #token').val('');
 			$('#linkText #token').hide();
 		} else {
@@ -466,6 +467,7 @@ OC.Share={
 			$('#linkText #token').show();
 			$('#linkText #linkBase').html(OC.Share.LINK_BASE);
 			$('#linkText #token').val(token);
+			$('#linkText .openURL').attr('href', OC.Share.LINK_BASE+token);
 		}
 		$('#linkText').show('blind');
 		$('#linkText').css('display','block');

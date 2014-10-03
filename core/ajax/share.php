@@ -27,6 +27,25 @@ OC_App::loadApps();
 
 $defaults = new \OCP\Defaults();
 
+// TODO: check also on data.deic.dk (if this is a slave)
+function checkTokenExists($token, $itemSource){
+	$query = \OC_DB::prepare('SELECT `item_source` FROM `*PREFIX*share` WHERE `token` = ?');
+	$result = $query->execute(Array($token));
+	if(\OCP\DB::isError($result)){
+		\OCP\Util::writeLog('sharing', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+  }
+	$i = 0;
+	while($row = $result->fetchRow()){
+		++$i;
+		if($row['item_source']!=$itemSource){
+			throw new Exception('Token already used.');
+		}
+		if($i>1){
+			\OCP\Util::writeLog('sharing', 'ERROR: Duplicate entries found for token:item_source '.$token.' : '.$itemSource, \OCP\Util::ERROR);
+		}
+	}
+}
+
 if (isset($_POST['action']) && isset($_POST['itemType']) && isset($_POST['itemSource'])) {
 	switch ($_POST['action']) {
 		case 'share':
@@ -40,12 +59,13 @@ if (isset($_POST['action']) && isset($_POST['itemType']) && isset($_POST['itemSo
 					
 					// Frederik: Allow any string to be used as token.
 					if(isset($_POST['token'])){
-						\OCP\Util::writeLog('sharing', "token: " . $_POST['token'], \OCP\Util::WARN);
+						checkTokenExists($_POST['token'], $_POST['itemSource']);
+						\OCP\Util::writeLog('sharing', "token:item_source " . $_POST['token'].":".$_POST['itemSource'], \OCP\Util::WARN);
 						$query = \OC_DB::prepare('UPDATE `*PREFIX*share` SET `token` = ? WHERE `item_source` = ?');
 						$query->execute(array($_POST['token'], $_POST['itemSource']));
 						$token = $_POST['token'];
 					}
-
+					// TODO: update also on data.deic.dk (if this is a slave) - sharder on data.deic.dk should be able to find owner of token
 					$generated_token = OCP\Share::shareItem(
 						$_POST['itemType'],
 						$_POST['itemSource'],
