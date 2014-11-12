@@ -82,4 +82,8 @@ table th#headerDate, table td.date {
     box-sizing: border-box;                                                                                                                                                                                                                
     position: relative;                                                                                                                                                                                                                    
     min-width: 11em;                                                                                                                                                                                                                       
-}                
+}
+
+.actions.creatable {
+	padding: 0.9em;
+}

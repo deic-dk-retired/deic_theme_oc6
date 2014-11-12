@@ -1,3 +1,4 @@
+
 function getCookie(name) {
     var dc = document.cookie;
     var prefix = name + "=";
@@ -140,7 +141,17 @@ $(document).ready(function(){
         'color': 'gray',
     }).appendTo('#login-saml'); */
 
-
+ $('<div id="signup" title="data.deic.dk early access">Hello handsome. DeIC\'s data service for researchers  will soon move out of beta. To sign up for early access, please send an email to cloud@deic.dk.</div>').css( 
+ {
+	 'text-align': 'center',
+	 'font-size' : '12px',
+	 'padding': '0px',
+	 'margin': '0px',
+	 'color': 'gray',
+	 'display': 'none'
+ }).appendTo('#login-saml');
+ 
+ 
 			$('fieldset').hide();
 			
 			$('#login-guest-img').click(function(){
@@ -149,10 +160,11 @@ $(document).ready(function(){
 				}
 				else{
 					$('fieldset').show("slow", "linear");
-				}
-			});
+                }
+            });
 
     var cookieName = "saml_auth_fail";
+    var userCookieName = "saml_auth_fail_user";
     var myCookie = getCookie(cookieName);
     var message = "";
     if (myCookie == 'noauth') {
@@ -161,9 +173,38 @@ $(document).ready(function(){
     if (myCookie == 'notallowed') {
         message = "<p>&nbsp;</p><p>Sorry, you're not authorized to use this service.</p>";
     }
-    if (myCookie != '') {
+    if (myCookie && myCookie.indexOf('notallowed:')==0) {
+			var userName = getCookie(userCookieName);
+			message = "<p>&nbsp;</p><p>Sorry, you're not authorized to use this service.</p>";
+			//alert("Hello "+myCookie.substr(11)+". data.deic.dk will soon move out of beta. To sign up for early access, please send an email to cloud@deic.dk");
+			oldhtml = $('div#signup').html();
+			//var newhtml = oldhtml.replace(/handsome/g, myCookie.substr(11));
+			var newhtml = oldhtml.replace(/handsome/g, userName);
+			$('div#signup').html(newhtml);
+			$("#signup").dialog({
+				modal: true,
+				draggable: false,
+				resizable: false,
+				position: ['center', 'middle'],
+				show: 'blind',
+				hide: 'blind',
+				width: 400,
+				dialogClass: 'ui-dialog-osx',
+				/*buttons: {
+					"Sign me up!": function() {
+						$(this).dialog("close");
+					}
+				}*/
+			});
+		}
+		if (userName != '') {
+			deleteCookie(userCookieName, '/', '.data.deic.dk');
+		}
+		if (myCookie != '') {
       deleteCookie(cookieName, '/', '.compute.deic.dk');
-      $(message).css(
+			deleteCookie(cookieName, '/', '.data.deic.dk');
+			deleteCookie(userCookieName, '/', '.data.deic.dk');
+			$(message).css(
         {
             'text-align': 'center',
             'font-weight': 'bolder',

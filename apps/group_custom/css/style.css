@@ -6,10 +6,10 @@ div#content div#controls{
 	top: 5em;
 	height: auto;
 	border-right: 0px;
+    background: #fff;
 }
 .ui-widget-header {
 	border: 1px solid #4B610B;
-	background: #4B610B url(images/ui-bg_flat_35_1d2d44_40x100.png) 50% 50% repeat-x;
 	color: #ffffff;
 	font-weight: bold;
 }
@@ -17,3 +17,7 @@ div#content div#controls{
 #leftcontent li {                                                               
     top: 0em;                                                                   
 }  
+
+#titlebar {
+  font-weight: bold;
+  padding: 20px;
