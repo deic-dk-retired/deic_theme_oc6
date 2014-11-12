@@ -85,7 +85,7 @@ input.login[type="submit"], #body-login input.login {
 #navigation {
         position:fixed;
         float:left;
-        width:150px;
+        width:250px;
         padding-top:.2em;
         padding-left: 50px;
         z-index:50;
