@@ -13,10 +13,37 @@
 <h3>File management</h3>
 <br />
 <p name="webdav">
-We recommend managing large files or large number of files with a dedicated file transfer client that supports WebDAV - like <a href="http://cyberduck.io/">Cyberduck</a>, the KDE file manager</a> (Dolphin), <a href="http://www.crossftp.com/">CrossFTP</a> or the command-line tool cadaver - or plain curl and wget (also command-line tools). Connecting with these clients is explained in the <a href="http://doc.owncloud.org/server/6.0/user_manual/files/files.html">ownCloud documentation</a> - <em>where you have to replace <code>example.com/owncloud</code> with <code>data.deic.dk</code> in the examples given</em>. E.g. for dolphin, the URL you should connect to is <code>webdavs://data.deic.dk/remote.php/webdav/</code>
+We recommend managing large files or large number of files with a dedicated file transfer client that supports WebDAV - like <a href="http://cyberduck.io/">Cyberduck</a>, the KDE file manager</a> (Dolphin), <a href="http://www.crossftp.com/">CrossFTP</a> or the command-line tool cadaver - or plain curl and wget (also command-line tools). Connecting with these clients is explained in the <a href="http://doc.owncloud.org/server/6.0/user_manual/files/files.html">ownCloud documentation</a> - <em>where you have to replace <code>example.com/owncloud</code> with <code>data.deic.dk</code> in the examples given</em>. E.g. for dolphin, the URL you should connect to is <code>webdavs://data.deic.dk/remote.php/webdav/</code>. For convenience, you can also use <code>webdavs://data.deic.dk/files/</code>.
 <br />
 <br />
-Notice that <em>we do not recommend mounting</em>  - so avoid fusedav and Ubuntu's Gnome/Nautilus file manager. Instead, <a href="http://owncloud.org/install/#desktop">use syncing</a>.
+NOTICE: With file transfer clients, you must use the password you've set in your <a href="https://data.deic.dk/index.php/settings/personal">preferences</a>.
+<br />
+<br />
+Here's how to download a file from the command line with curl:
+<br />
+<br />
+<code>curl -u username:password "https://data.deic.dk/files/myfile.pdf" &gt; myfile.pdf</code>
+<br />
+<br />
+Replace username with the email address you use to log in to data.deic.dk. You may have to <a href="http://meyerweb.com/eric/tools/dencoder/">URL encode</a> the file name (if it contains spaces or non-ascii characters).
+<br />
+<br />
+Here's how to upload a file with curl:
+<br />
+<br />
+<code>curl -u username:password --upload "myfile.pdf" "https://data.deic.dk/files/myfile.pdf"</code>
+<br />
+<br />
+or for upload to a shared public folder, shared as <code>https://data.deic.dk/shared/mysharedfolder</code> 
+<br />
+<br />
+<code>curl --upload "myfile.pdf" "https://data.deic.dk/public/mysharedfolder/myfile.pdf"</code>
+<br />
+<br />
+Notice that <code>/shared/</code> has been changed to <code>/public/</code> in the upload path.
+<br />
+<br />
+<em>We do not recommend mounting</em>  - so avoid fusedav and Ubuntu's Gnome/Nautilus file manager. Instead, <a href="http://owncloud.org/install/#desktop">use syncing</a>.
 </p>
 <br />
 <h3>DeIC-specific features</h3>
@@ -26,7 +53,7 @@ DeIC's mission is to make computing easier for researchers. For our file-managem
 </p>
 <br />
 <p>
-<b>Access your data via HTTPS directly from your virtual machines on <a href="http://compute.deic.dk/">compute.deic.dk</a></b>  - over a non-public, trusted network, with automatic authentication (i.e. no password). You can do this by pointing your HTTP or WebDAV client to https://10.2.0.254/remote.php/mydav/.
+<b>Access your data via HTTPS directly from your virtual machines on <a href="http://compute.deic.dk/">compute.deic.dk</a></b>  - over a non-public, trusted network, with automatic authentication (i.e. no password). You can do this by pointing your HTTP or WebDAV client to https://10.2.0.254/files/.
 <br />
 <br />
 <b>Download data directly</b> to data.deic.dk from external sources - with the 'DL' app on the left toolbar (use this only for few and small files) or via an API - like e.g.
@@ -42,10 +69,13 @@ DeIC's mission is to make computing easier for researchers. For our file-managem
 <p>
 <b>Metadata</b> - allow or enforce description of uploaded data.
 <br />
-<b>Management of you VM images on compute.deic.dk</b> - take advantage of ownCloud's datamanagement features to organize and share your image library.
+<b>Management of your VM images on compute.deic.dk</b> - take advantage of ownCloud's datamanagement features to organize and share your image library.
 <br />
 <b>Groups</b> - extended group functionality: browse groups, invitation/sign-up instead of direct adding of members.
 </p>
+<br />
+<br />
+</div>
 </div>
 </div>
 </div>
