@@ -1,0 +1,10 @@
+div#content div#controls{
+	min-width: 600px;
+}
+.ui-widget-header {
+	border: 1px solid #4B610B;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+
