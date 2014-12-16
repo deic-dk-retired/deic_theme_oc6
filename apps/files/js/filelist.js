@@ -1087,5 +1087,30 @@ $(document).ready(function() {
 		}
 	});
 			
-	
+    // Shorten file name on mouse-over. Added by Christian Brinch, dec. 2014
+    var str;
+    $('#filestable tbody tr[data-type="file"]').live( {
+      mouseenter:  function() {  
+        var tdw   = $(this).children('td').width();
+        var namew = $(this).find('.nametext').width();
+        var actw  = $(this).find('.fileactions').width();
+
+        str = $(this).find('.nametext').html();
+        var splitstr = str.split('<span ');        
+        if (namew > tdw-(actw+50) ) {  // the additional 50 is the width of the icon           
+          var lng = 6;
+          if (splitstr[0].length < 12 ) lng = 2;
+          var shortstr = splitstr[0].substr(0, lng) + '...' + splitstr[0].substr(splitstr[0].length-lng, splitstr[0].length);                                       
+          $(this).find('.nametext').html(shortstr+"<span "+splitstr[1]);
+        } 
+     }, 
+      mouseleave:  function () {
+       $(this).find('.nametext').html(str);
+      }
+     });
+
+
+
+
+
 });
