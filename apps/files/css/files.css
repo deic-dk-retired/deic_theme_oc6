@@ -27,7 +27,7 @@
 }
 
 #filestable.multiselect { 
-	top:63px; 
+	top: 63px; 
 }
 
 table#filestable thead {
@@ -91,6 +91,81 @@ table th#headerDate, table td.date {
     min-width: 11em;                                                                                                                                                                                                                       
 }
 
-.actions.creatable {
-	padding: 0.9em;
+.actions {
+  width: auto;
 }
+
+i.large {
+  font-size: large;
+}
+
+i.overlay {
+  font-weight: bold;
+  opacity: 1;
+  font-size: x-large;
+  position: relative;
+  left: -11px;
+  top: 7px;
+  margin-right: 15px;
+} 
+
+
+#new {
+  float: right;
+  margin: 6px 0 0 10px;
+  padding: 0 0 0 0;
+  top: 0;
+}
+
+#new > a {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  top: 0;
+}
+
+#upload {
+  float: right;
+  margin: 10px 0 0 10px;
+  padding: 0 0 0 0;
+}
+
+#upload > a {
+  margin: 0 0 0 0;
+  padding 0 0 0 0;
+  top: 0;
+  float: right;
+}
+
+#upload a {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+#trash {
+  float: right;
+  margin: 10px 0 0 10px;
+  padding: 0 0 0 0;
+  cursor: pointer;
+}
+
+table.multiselect thead th {
+  border-bottom: 1px solid #ddd;
+}
+
+#body-user #filestable {
+   min-width: 850px;  
+   top: 13px;
+}
+
+#body-user #controls {
+  position: relative;
+  min-width: 850px;
+  width: 100%;
+  height: auto;
+  min-width: 850;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  top: 0;
+}
+
+
