@@ -79,7 +79,7 @@ table { border-collapse:separate; border-spacing:2px; white-space:nowrap; }
 }
 
 
-input.login[type="submit"], #body-login input.login {
+input.login[type="submit"], #body-login input.login, #body-login input#submit{
   float: right;
   padding: 3px;
   width: auto;
@@ -520,7 +520,16 @@ div.crumb.last:after {
 
 #body-login #remember_login:hover + label, #body-login #remember_login:focus + label {
   color: #000 !important;
+  font-family: 'Open Sans';
+  font-weight: 300;
 }
+
+#body-login .warning {
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 300;
+}
+
 
 
 
@@ -649,5 +658,13 @@ div#bodywrapper {
   text-align: center; 
   font-size: 16px;
 }
+
+#body-login .update{
+  background: none;
+  color: #F7941E;
+  font-family: 'Open Sans';
+  font-weight: 300;
+}
+
 
 
