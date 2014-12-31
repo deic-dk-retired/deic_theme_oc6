@@ -31,13 +31,13 @@ Replace username with the email address you use to log in to data.deic.dk. You m
 Here's how to upload a file with curl:
 <br />
 <br />
-<code>curl -u username:password --upload "myfile.pdf" "https://data.deic.dk/files/myfile.pdf"</code>
+<code>curl -L -u username:password --upload "myfile.pdf" "https://data.deic.dk/files/myfile.pdf"</code>
 <br />
 <br />
 or for upload to a shared public folder, shared as <code>https://data.deic.dk/shared/mysharedfolder</code> 
 <br />
 <br />
-<code>curl --upload "myfile.pdf" "https://data.deic.dk/public/mysharedfolder/myfile.pdf"</code>
+<code>curl -L --upload "myfile.pdf" "https://data.deic.dk/public/mysharedfolder/myfile.pdf"</code>
 <br />
 <br />
 Notice that <code>/shared/</code> has been changed to <code>/public/</code> in the upload path.
@@ -53,7 +53,22 @@ DeIC's mission is to make computing easier for researchers. For our file-managem
 </p>
 <br />
 <p>
-<b>Access your data via HTTPS directly from your virtual machines on <a href="http://compute.deic.dk/">compute.deic.dk</a></b>  - over a non-public, trusted network, with automatic authentication (i.e. no password). You can do this by pointing your HTTP or WebDAV client to https://10.2.0.254/files/.
+<b>Access your data via HTTPS directly from your virtual machines on <a href="http://compute.deic.dk/">compute.deic.dk</a></b>  - over a non-public, trusted network, with automatic authentication (i.e. no password). You can do this by pointing your HTTP or WebDAV client to https://10.2.0.254/files/. E.g. to list files with curl, you can do:
+<br />
+<br />
+<code>curl -k -L --request PROPFIND "https://10.2.0.254/files/" | xmllint --format -</code><br />
+<br />
+<br />
+To upload a file, you can do like above, omitting -u username:password:
+<br />
+<br />
+<code>curl -k -L --upload "myfile.pdf" "https://10.2.0.254/files/myfile.pdf"</code>
+<br />
+<br />
+The same goes for downloading a file:
+<br />
+<br />
+<code>curl -k -L "https://10.2.0.254/files/myfile.pdf" &gt; myfile.pdf</code>
 <br />
 <br />
 <b>Download data directly</b> to data.deic.dk from external sources - with the 'DL' app on the left toolbar (use this only for few and small files) or via an API - like e.g.

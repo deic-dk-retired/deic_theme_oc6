@@ -3,7 +3,8 @@ body {
 }
 
 #header {
-	background-color: #585858;
+	background-color: #fff; /*#585858;*/
+    height: 55px;
 }                                                                             
 div.crumb:first-child {                                                        
 	position: relative;                                                          
@@ -14,11 +15,40 @@ div.crumb:first-child {
 
 a#logo, img.svg{
 	vertical-align: middle;
+    padding: 22px 70px 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
+
+#details {
+  color: #000;
+  opacity: 1;
+}
+
+.header-right {
+    padding-right: 90px;
+    padding-top:10px;
+    top: 0px;
+    height: 55px;
+}
+
 
 .header-right #details a {
 	border: 0 none;
-	color: #ffffff;
+	color: #000;
 	text-decoration: none;
 	font-weight: bold;
 }
+
+#controls {
+  padding-left: 250px;
+  padding-right: 90px;
+}
+
+#emptycontent {
+  top: 80px;
+}
+
+.icon-noise {
+  background-image: none;

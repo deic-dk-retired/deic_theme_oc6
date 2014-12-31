@@ -32,7 +32,6 @@
                 <a target="_blank" class="button" href="/themes/deic/support/#webdav">
                     <img class="appsmall svg" src="/themes/deic/core/img/places/folder.svg"> Access files through WebDAV</a>
             </div>
-<?php /*
             <div class="wizard-step-count">4</div>
             <div class="wizard-step-content">
                 <h3>Recommend us</h3>
@@ -44,7 +43,6 @@
                     <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://data.deic.dk/&title=DeIC%20data%20is%20a%20great%20service%20for%20the%20Danish%20research%20community%20to%20store%2C%20share%20and%20sync%20files.%20All%20Danish%20researchers%20and%20students%20can%20log%20in" target="_blank" class="button">LinkedIn</a>
                 </p>
             </div>
- */?>
         </div>
         <p class="footnote">
             <small>

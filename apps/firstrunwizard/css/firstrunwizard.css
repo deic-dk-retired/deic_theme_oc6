@@ -16,6 +16,7 @@
 .wizard-step-content {
   float: left;
   padding: 0 0 30px;
+	/*margin: 0 12px 0 0;*/
   max-width: 532px;
 }
 .wizard-step-content a img {
@@ -33,5 +34,5 @@
 }
 #firstrunwizard h2 {font-weight: normal; font-size: 30px; text-align: center;}
 #firstrunwizard h3 {margin: 5px 0 10px;}
-#firstrunwizard .footnote {text-align: center;}
+#firstrunwizard .footnote {text-align: center; margin-top: 10px}
 #firstrunwizard .wrap-wizard {text-align: left; max-width: 600px; margin: 0 auto;}

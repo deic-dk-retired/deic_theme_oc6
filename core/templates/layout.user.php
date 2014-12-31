@@ -14,7 +14,12 @@
 		</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="apple-itunes-app" content="app-id=543672169">
-		<link rel="shortcut icon" href="<?php print_unescaped(image_path('', 'favicon.png')); ?>" />
+
+        <meta property="og:title" content="DeIC data - Cloud storage for scientists" />
+        <meta property="og:description" content="DeIC data is a great service for the Danish research community to store, share and sync files." />
+        <meta property="og:image" content="https://data.deic.dk/themes/deic/core/img/logo-trnsp.png" />
+
+        <link rel="shortcut icon" href="<?php print_unescaped(image_path('', 'favicon.png')); ?>" />
 		<link rel="apple-touch-icon-precomposed" href="<?php print_unescaped(image_path('', 'favicon-touch.png')); ?>" />
 		<?php foreach($_['cssfiles'] as $cssfile): ?>
 			<link rel="stylesheet" href="<?php print_unescaped($cssfile); ?>" type="text/css" media="screen" />

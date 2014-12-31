@@ -1,9 +1,12 @@
 <div id="controls">
 	<?php print_unescaped($_['breadcrumb']); ?>
 		<div class="actions creatable <?php if (!$_['isCreatable']):?>hidden<?php endif; ?>">
+			<?php if ($_['trash']): ?>
+            <div id="trash" <?php $_['trashEmpty'] ? p('disabled') : '' ?> title="<?php p($l->t('Deleted files')) ?>"><i class="fa fa-trash-o deic_green large"></i></div>
+			<?php endif; ?>
 			<?php if(!isset($_['dirToken'])):?>
-			<div id="new" class="button">
-				<a><?php p($l->t('New'));?></a>
+            <div id="new" title="New file or folder">
+                <a><i class="fa fa-file-o deic_green large"></i><i class="overlay deic_green">+</i></a>
 				<ul>
 					<li style="background-image:url('<?php p(OCP\mimetype_icon('text/plain')) ?>')"
 						data-type='file' data-newname='<?php p($l->t('New text file')) ?>.txt'><p><?php p($l->t('Text file'));?></p></li>
@@ -14,9 +17,9 @@
 				</ul>
 			</div>
 			<?php endif;?>
-			<div id="upload" class="button"
+			<div id="upload" 
 				 title="<?php p($l->t('Upload') . ' max. '.$_['uploadMaxHumanFilesize']) ?>">
-					<?php if($_['uploadMaxFilesize'] >= 0):?>
+                    <?php if($_['uploadMaxFilesize'] >= 0):?>
 					<input type="hidden" name="MAX_FILE_SIZE" id="max_upload"
 						   value="<?php p($_['uploadMaxFilesize']) ?>">
 					<?php endif;?>
@@ -29,11 +32,8 @@
 					<input type="hidden" name="dir" value="<?php p($_['dir']) ?>" id="dir">
 					<input type="file" id="file_upload_start" name='files[]'
 						   data-url="<?php print_unescaped(OCP\Util::linkTo('files', 'ajax/upload.php')); ?>" />
-					<a href="#">Upload</a>
+					<a href="#"><i class="fa fa-cloud-upload deic_green large"></i></a>
 			</div>
-			<?php if ($_['trash']): ?>
-			<div id="trash" class="button" <?php $_['trashEmpty'] ? p('disabled') : '' ?>><?php p($l->t('Trash'));?></div>
-			<?php endif; ?>
 			<div id="uploadprogresswrapper">
 				<div id="uploadprogressbar"></div>
 				<input type="button" class="stop" style="display:none"
