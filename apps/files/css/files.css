@@ -27,7 +27,11 @@
 }
 
 #filestable.multiselect { 
-	top: 63px; 
+	top: 76px; 
+}
+
+#filestable { 
+	top: 76px; 
 }
 
 table#filestable thead {
